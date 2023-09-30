@@ -1,0 +1,27 @@
+@import "../../styles/variables.scss";
+
+.menu-item {
+  margin-bottom: 15px;
+  .menu-item-title {
+    font-size: 12px;
+    font-weight: 200;
+    color: $soft-color;
+  }
+
+  .list-items {
+    margin-top: 10px;
+  }
+
+  //each item eg icon Home
+  .list-item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 10px;
+    border-radius: 5px;
+
+    &:hover {
+      background-color: $soft-bg;
+    }
+  }
+}
