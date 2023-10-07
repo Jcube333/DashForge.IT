@@ -3,9 +3,10 @@
 .menu-item {
   margin-bottom: 15px;
   .menu-item-title {
-    font-size: 12px;
-    font-weight: 200;
+    font-size: 10px;
+    font-weight: 600;
     color: $soft-color;
+    text-transform: uppercase;
   }
 
   .list-items {

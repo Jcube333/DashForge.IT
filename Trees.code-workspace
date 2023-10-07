@@ -1,0 +1,19 @@
+{
+  "folders": [
+	{
+		"path": "../../../Core/DSA/Trees"
+	},
+	{
+		"path": "."
+	},
+	{
+		"path": "../../Clone"
+	}
+],
+  "settings": {
+    "files.associations": {
+      "*.jsx": "javascriptreact",
+      "iosfwd": "cpp"
+    }
+  }
+}
