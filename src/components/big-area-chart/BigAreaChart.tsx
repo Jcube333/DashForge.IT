@@ -71,7 +71,9 @@ export default function BigAreaChart() {
           >
             <XAxis dataKey="name" />
             <YAxis />
-            <Tooltip />
+            <Tooltip
+              contentStyle={{ background: "#222b3c", borderRadius: "20px" }}
+            />
             <Area
               type="monotone"
               dataKey="books"

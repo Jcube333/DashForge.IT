@@ -1,5 +1,80 @@
 import "./users.scss";
 
+import DataTable from "../../components/data-table/DataTable.tsx";
+import { GridColDef, GridValueGetterParams } from "@mui/x-data-grid";
+import { userRows } from "../../Data.ts";
+
+const columns: GridColDef[] = [
+  { field: "id", headerName: "ID", width: 90 },
+  {
+    field: "img",
+    headerName: "Avatar",
+    width: 100,
+    renderCell: (params) => {
+      return <img src={params.row.img || "/noavatar.png"} alt="" />;
+    },
+  },
+  {
+    field: "firstName",
+    type: "string",
+    headerName: "First name",
+    width: 110,
+  },
+  {
+    field: "lastName",
+    type: "string",
+    headerName: "Last name",
+    width: 110,
+  },
+  {
+    field: "email",
+    type: "string",
+    headerName: "Email",
+    width: 200,
+  },
+  {
+    field: "phone",
+    type: "string",
+    headerName: "Phone",
+    width: 120,
+  },
+  {
+    field: "createdAt",
+    headerName: "Created At",
+    width: 120,
+    type: "string",
+  },
+  {
+    field: "verified",
+    headerName: "Verified",
+    width: 110,
+    type: "boolean",
+    renderCell: (params) => {
+      return (
+        <div className="verified">
+          <img
+            src={
+              params.row.verified
+                ? "./verified-final.png"
+                : "./not-verified-2.png"
+            }
+            alt=""
+          />
+        </div>
+      );
+    },
+  },
+];
+
 export default function Users() {
-  return <div>Users</div>;
+  return (
+    <div className="users">
+      <div className="info">
+        <h1>Users</h1>
+        <button>Add a new user</button>
+      </div>
+
+      <DataTable target="users" cols={columns} rows={userRows} />
+    </div>
+  );
 }
