@@ -5,7 +5,7 @@ import { DataGrid, GridColDef, GridToolbar } from "@mui/x-data-grid";
 type Props = {
   cols: GridColDef[];
   rows: object[];
-  target: string;
+  slug: string;
 };
 
 export default function DataTable(props: Props) {
@@ -20,7 +20,7 @@ export default function DataTable(props: Props) {
     renderCell: (params) => {
       return (
         <div className="action">
-          <Link to={`${props.target}/${params.row.id}`}>
+          <Link to={`${props.slug}/${params.row.id}`}>
             <img src="./view.svg" alt="" />
           </Link>
           <div

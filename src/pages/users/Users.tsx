@@ -3,6 +3,8 @@ import "./users.scss";
 import DataTable from "../../components/data-table/DataTable.tsx";
 import { GridColDef, GridValueGetterParams } from "@mui/x-data-grid";
 import { userRows } from "../../Data.ts";
+import { useState } from "react";
+import AddModal from "../../components/add-modal/AddModal.tsx";
 
 const columns: GridColDef[] = [
   { field: "id", headerName: "ID", width: 90 },
@@ -48,7 +50,7 @@ const columns: GridColDef[] = [
     field: "verified",
     headerName: "Verified",
     width: 110,
-    type: "boolean",
+    type: "bool",
     renderCell: (params) => {
       return (
         <div className="verified">
@@ -67,14 +69,28 @@ const columns: GridColDef[] = [
 ];
 
 export default function Users() {
+  const [isModalActive, setModalActive] = useState(false);
   return (
     <div className="users">
       <div className="info">
         <h1>Users</h1>
-        <button>Add a new user</button>
+        <button
+          onClick={() => {
+            setModalActive(true);
+          }}
+        >
+          Add a new User
+        </button>
       </div>
 
-      <DataTable target="users" cols={columns} rows={userRows} />
+      <DataTable slug="users" cols={columns} rows={userRows} />
+      {isModalActive && (
+        <AddModal
+          slug="user"
+          setModalActive={setModalActive}
+          colEntries={columns}
+        />
+      )}
     </div>
   );
 }
